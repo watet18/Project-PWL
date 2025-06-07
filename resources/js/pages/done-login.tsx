@@ -1,6 +1,23 @@
 import { Head, Link, usePage } from '@inertiajs/react';
 import { useEffect } from 'react';
 
+    const UserIcon = () => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-6 w-6 inline-block mr-2"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+    >
+        <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M5.121 17.804A9.004 9.004 0 0112 15a9.004 9.004 0 016.879 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+        />
+    </svg>
+    );
+
 export default function Welcome() {
     const { auth } = usePage().props;
 
@@ -51,12 +68,15 @@ export default function Welcome() {
                         .galeri-item.show {
                             opacity: 1;
                         }
+                            html {
+                            scroll-behavior: smooth;
+                        }
                     `}
                 </style>
             </Head>
             <div className="min-h-screen bg-black text-white">
                 {/* Header */}
-                <header className="flex items-center justify-between px-8 py-4 border-b-[3px] border-yellow-500 bg-black shadow-md">
+                <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-4 border-b-[3px] border-yellow-500 bg-black shadow-md">
                     <div className="flex items-center space-x-2">
                         <img src="/images/logo.png" alt="Sicukur Logo" className="h-10 w-auto" />
                         <h1 className="text-2xl font-bold text-yellow-500 font-playfair">Sicukur</h1>
@@ -73,17 +93,29 @@ export default function Welcome() {
                                 </span>
                             </Link>
                         ))}
+
+                        {/* Booking Button */}
                         <Link
                             href={route('booking')}
-                            className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-400 font-semibold transition"
+                            className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-400 font-semibold transition flex items-center"
                         >
-                            booking sekarang
+                            Booking
+                        </Link>
+
+                        {/* Icon Akun di sebelah booking */}
+                        <Link
+                            href={route('akun')}
+                            className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-400 font-semibold transition flex items-center"
+                            title="Akun Saya"
+                        >
+                            <UserIcon />
+                            Akun
                         </Link>
                     </nav>
                 </header>
 
                 {/* Main Content */}
-                <main>
+                <main className="pt-[96px]">
                     <section className="flex flex-col lg:flex-row items-center justify-between px-4 sm:px-8 lg:px-16 py-10 lg:py-20">
                         <div className="max-w-lg text-center lg:text-left">
                             <h2 className="text-4xl sm:text-5xl font-bold mb-4 italic font-playfair">Welcome to</h2>
@@ -121,7 +153,7 @@ export default function Welcome() {
                         </div>
                     </section>
 
-                    <section id="pricelist" className="px-4 sm:px-10 lg:px-32 py-16 bg-black text-white">
+                    <section id="layanan" className="px-4 sm:px-10 lg:px-32 py-16 bg-black text-white">
                         <h2 className="text-4xl font-bold text-center text-yellow-500 mb-12 tracking-wide font-playfair">Pricelist</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                             {[

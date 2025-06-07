@@ -50,6 +50,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                             id="email"
                             type="email"
                             required
+                            className="text-white"
                             autoFocus
                             tabIndex={1}
                             autoComplete="email"

@@ -19,6 +19,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/done-login', function () {
     return Inertia::render('done-login'); // nama file booking.tsx di folder resources/js/Pages/
     })->name('done-login');
+
+    Route::get('/akun', function () {
+        return Inertia::render('akun');
+    })->name('akun');
 });
 
 require __DIR__.'/settings.php';

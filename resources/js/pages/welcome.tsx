@@ -51,6 +51,9 @@ export default function Welcome() {
                         .galeri-item.show {
                             opacity: 1;
                         }
+                        html {
+                            scroll-behavior: smooth;
+                        }
                     `}
                 </style>
             </Head>
@@ -63,7 +66,7 @@ export default function Welcome() {
                     </div>
                     <nav className="flex items-center gap-6">
                         {navItems.map((item, index) => (
-                            <Link
+                            <a
                                 key={index}
                                 href={item.href}
                                 className="text-yellow-500 font-medium relative group hover:text-yellow-300"
@@ -71,7 +74,7 @@ export default function Welcome() {
                                 <span className="transition-all duration-200 group-hover:underline group-hover:underline-offset-4">
                                     {item.label}
                                 </span>
-                            </Link>
+                            </a>
                         ))}
                         <Link
                             href={route('login')}
@@ -127,7 +130,7 @@ export default function Welcome() {
                         </div>
                     </section>
 
-                    <section id="pricelist" className="px-4 sm:px-10 lg:px-32 py-16 bg-black text-white">
+                    <section id="layanan" className="px-4 sm:px-10 lg:px-32 py-16 bg-black text-white">
                         <h2 className="text-4xl font-bold text-center text-yellow-500 mb-12 tracking-wide font-playfair">Pricelist</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                             {[

@@ -42,6 +42,7 @@ export default function Register() {
                             id="name"
                             type="text"
                             required
+                            className="text-white"
                             autoFocus
                             tabIndex={1}
                             autoComplete="name"
@@ -59,6 +60,7 @@ export default function Register() {
                             id="email"
                             type="email"
                             required
+                            className="text-white"
                             tabIndex={2}
                             autoComplete="email"
                             value={data.email}
@@ -75,6 +77,7 @@ export default function Register() {
                             id="password"
                             type="password"
                             required
+                            className="text-white"
                             tabIndex={3}
                             autoComplete="new-password"
                             value={data.password}
@@ -91,6 +94,7 @@ export default function Register() {
                             id="password_confirmation"
                             type="password"
                             required
+                            className="text-white"
                             tabIndex={4}
                             autoComplete="new-password"
                             value={data.password_confirmation}
